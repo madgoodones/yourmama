@@ -1,0 +1,107 @@
+.menu
+	position absolute
+	right 0
+	margin 45px
+	z-index 9999
+	height 1px !important
+	.logo
+		width 160px
+	.toggle-button
+		position absolute
+		right 0
+		margin-top 9px
+		i 
+			color #fff
+			cursor pointer
+
+.menu-active
+	position fixed
+	background-color #fff
+	width 100%
+	height 100%
+	z-index 999
+	.menu-items
+		width: 100%
+		position absolute
+		bottom 45%
+		margin: 0 auto
+		margin-bottom: 20px
+		+below($tablet)
+			bottom 25%
+		
+		.items-ul
+			list-style-type none
+			text-align: center
+			padding 0
+			width 75%
+			float left
+			text-align left
+			padding-left 45px
+			+below($tablet)
+				width: 100%
+				padding-left 0
+				text-align center
+			li
+				color #adadad
+				display: inline
+				margin: 0px 21px
+				font-size: rem(21px)
+				letter-spacing: $ls
+				cursor pointer
+				transition: .3s
+				+below($tablet)
+					display: block
+					margin: 13px 0px
+				&:hover
+					color #000
+					transition: .3s
+
+		.social-ul
+			list-style-type none
+			width: 25%
+			float: left
+			padding 0
+			text-align: center
+			padding-bottom: 5px
+			text-align right
+			padding-right 45px
+			+below($tablet)
+				width: 100%
+				padding-right 0
+				text-align center
+			li
+				display: inline-block
+				border: 1px solid #adadad
+				margin: 0px 12px
+				padding 6px 10px
+				color #adadad
+				cursor pointer
+				transition: .3s
+				&:hover
+					color #000
+					transition: .3s
+					border-color: #000
+
+
+	.content
+		position: absolute
+		bottom 0
+		background url('http://localhost/yourmama/wp-content/uploads/2017/07/manequim.jpg');
+		width: 100%
+		height 45vh
+		transition: .2s all ease-in-out
+		+below($tablet)
+			height 25vh
+
+.toggle-button-black
+	color: #000 !important
+	
+
+.back
+	position absolute
+	left 45px
+	top 45px
+	z-index 8888
+	text-transform lowercase
+	padding-top 1px
+	cursor pointer
