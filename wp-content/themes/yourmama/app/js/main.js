@@ -7,7 +7,7 @@ $( document ).ready(function() {
     // });
 
     var altura = $('html').height();
-    $(".diretor-iframe").height(altura);
+    $(".page-iframe").height(altura);
 
     $('#fullpage').fullpage();
 
@@ -145,6 +145,10 @@ $(".diretor-title").on('mouseleave', function(event) {
 $(".projeto").on('click', function(event) {
     var titulo = $(this).find('.title').text();
     var id = $(this).attr("id");
+    var src = $(this).find('.video-src').attr('data-src');
+    var iframe = $('.page-iframe');
+
+    iframe.attr('src', src);
     
     $('html, body').animate({
         scrollTop: '0px'
@@ -152,7 +156,7 @@ $(".projeto").on('click', function(event) {
         $('#subtitle').text(titulo).show('slow');
         $('#diretor-text').slideUp(500);
 
-        $(".video-"+id).slideDown(500, function(){
+        $(".iframe-holder").slideDown(500, function(){
             $(".not-first").slideUp(500);
             console.log(".video-"+id);
             $('html, body').animate({
@@ -168,7 +172,8 @@ $(".projeto").on('click', function(event) {
 $("#diretor-title").on('click', function(event) {
     $("#subtitle").text("");
     $('#diretor-text').slideDown(500);
-    $(".diretor-video").slideUp(500, function(){
+    $(".iframe-holder").slideUp(500, function(){
+        $(".page-iframe").attr('src', '');
         $('.not-first').slideDown(500, function() {
 
         });

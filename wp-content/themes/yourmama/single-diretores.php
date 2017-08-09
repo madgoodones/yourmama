@@ -20,18 +20,9 @@
 		<?php $i = 0; ?>
 		<?php $video_id = 0; ?>
 		<div id="video-top"></div>
-		<?php while ( have_rows('projetos') ) : the_row(); ?>
-			<div class="diretor-video video-<?php echo "$video_id"; ?>">
-				<?php $iframe = get_sub_field('video_do_projeto'); ?>
-				<?php preg_match('/src="(.+?)"/', $iframe, $matches); ?>
-				<?php $src = $matches[1]; ?>
-
-				<iframe class="diretor-iframe" src="<?php echo "$src" ?>" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-			</div>
-			<?php $video_id++; ?>
-		<?php endwhile; ?>
-		
+		<div class="iframe-holder">
+			<iframe class="page-iframe" width="100%" frameborder="0" src="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
 
 
 		<?php while ( have_rows('projetos') ) : the_row(); ?>
@@ -54,6 +45,11 @@
 					<div class="subtitle ">
 						<?php the_sub_field('subtitulo_do_projeto'); ?>
 					</div>
+
+					<?php $iframe = get_sub_field('video_do_projeto'); ?>
+					<?php preg_match('/src="(.+?)"/', $iframe, $matches); ?>
+					<?php $src = $matches[1]; ?>
+					<input class="video-src" type="hidden" data-src="<?php echo "$src" ?>">
 				</div>
 
 			</div>

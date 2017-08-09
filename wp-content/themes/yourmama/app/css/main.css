@@ -674,7 +674,7 @@ a:active {
   height: 100vh;
   display: none;
 }
-.global-frame {
+.iframe-holder {
   background-color: #fff;
   height: 100vh;
   display: none;
