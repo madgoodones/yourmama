@@ -52,6 +52,7 @@ var scripts = [
     './vendor/jquery-form/dist/jquery.form.min.js',
     './bower_components/wow/dist/wow.min.js',
     './bower_components/fullpage.js/dist/jquery.fullpage.min.js',
+    './bower_components/fullpage.js/vendors/scrolloverflow.min.js',
     './js/*.js'
 ];
 gulp.task('uglify', function(){

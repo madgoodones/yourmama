@@ -1,21 +1,24 @@
 $( document ).ready(function() {
     $(".menu-active").hide();
 
-    //$(".not-first").hide();
-    // $(".not-first").slideDown(2000, function() {
-    //     //$(".wow-diretores").addClass('wow fadeInUp animated');
-    // });
-
-    var altura = $('html').height();
+    var altura = $('.iframe-holder').height();
     $(".page-iframe").height(altura);
 
-    $('#fullpage').fullpage();
+    $('#fullpage').fullpage({
+        scrollBar: true,
+        scrollOverflow: true,
+        scrollOverflowReset: true,
+        afterRender: true,
+        scrollingSpeed: 590,
+        offsetSections:false,
+        loopBottom: true,
+    });
 
     var wow = new WOW(
     {
         boxClass:     'wow',      // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)
-        offset:       50,          // distance to the element when triggering the animation (default is 0)
+        offset:       0,          // distance to the element when triggering the animation (default is 0)
         mobile:       true,       // trigger animations on mobile devices (default is true)
         live:         true,       // act on asynchronously loaded content (default is true)
         callback:     function(box) {
@@ -116,6 +119,7 @@ owl.on('translate.owl.carousel', function(event) {
 // Inserir efeitos na página de diretores
 
 $('.wow-diretores').addClass('wow fadeInUp');
+$('.wow-diretores').css('color', '#fff');
 
 // Hover da página interna de diretores
 
@@ -125,17 +129,22 @@ $(".diretor-title").on('mouseover',function(){
     var img = $(this).attr("data-img");
     var con = $("#page-diretores");
     // Troca a imagem
-    con.css({
-        'background': 'url('+ img +') no-repeat center center',
-        'background-size': 'cover',
-        'transition': '.2s'
+
+    con.fadeIn('slow', function(){
+         con.css({
+            'background': 'url('+ img +') no-repeat center center',
+            'background-size': 'cover',
+            'transition': '.2s'
+        });
     });
 
     $('.diretor-title').not(this).css('color', 'transparent');
 });
 
 $(".diretor-title").on('mouseleave', function(event) {
-    $('.diretor-title').css('color', '#fff');
+    $('.diretor-title').css('color', '#fff').fadeIn('slow', function() {
+        
+    });;
 });
 
 
@@ -147,21 +156,20 @@ $(".projeto").on('click', function(event) {
     var id = $(this).attr("id");
     var src = $(this).find('.video-src').attr('data-src');
     var iframe = $('.page-iframe');
-
+    $("#subtitle").hide();
     iframe.attr('src', src);
     
     $('html, body').animate({
         scrollTop: '0px'
     }, function(){
-        $('#subtitle').text(titulo).show('slow');
-        $('#diretor-text').slideUp(500);
+        $('#diretor-text').slideUp(500); // Bio
+        $('.pos').fadeOut(500, function(){ // Diretor(a)
+            $('#subtitle').text(titulo).fadeIn(500); // Nome do video
+        });
 
         $(".iframe-holder").slideDown(500, function(){
-            $(".not-first").slideUp(500);
+            $(".project-section").fadeOut(500);
             console.log(".video-"+id);
-            $('html, body').animate({
-                scrollTop: $("#video-top").offset().top
-            }, 750);
         });
     });
 });
@@ -170,11 +178,12 @@ $(".projeto").on('click', function(event) {
 // Mostra conteudo novamente
 
 $("#diretor-title").on('click', function(event) {
-    $("#subtitle").text("");
+    $("#subtitle").text("").hide('slow');
     $('#diretor-text').slideDown(500);
+    $('.pos').fadeIn(500);
     $(".iframe-holder").slideUp(500, function(){
         $(".page-iframe").attr('src', '');
-        $('.not-first').slideDown(500, function() {
+        $('.project-section').fadeIn(500, function() {
 
         });
     });

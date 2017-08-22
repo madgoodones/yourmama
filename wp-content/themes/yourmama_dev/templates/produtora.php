@@ -1,5 +1,8 @@
 <?php /* Template Name: Produtora */ ?>
-<div class="produtora-header"><?php get_header(); ?></div>
+<div id="fullpage">
+<div class="section fp-auto-height fp-noscroll">
+	<div class="produtora-header"><?php get_header(); ?></div>
+</div>
 
 <?php if( have_rows('caixa') ): ?>
 	<?php $i = 0; ?>
@@ -7,8 +10,15 @@
 
 	<?php $img = get_sub_field('imagem'); ?>
 	
-	<div class="produtora" style="
-		background: url('<?php echo $img['url'] ?>') no-repeat center center;
+	<div class="section produtora fp-auto-height fp-noscroll" style="
+		background: url('<?php echo $img['url'] ?>') no-repeat;
+		background-position: center center;
+		<?php if($i == 1): ?>
+		background-position: 52% center;
+		<?php endif; ?>
+		<?php if($i == 2): ?>
+		background-position: 37% center;
+		<?php endif; ?>
 		-webkit-background-size: cover;
 		background-size: cover;
 	">	
@@ -26,4 +36,5 @@
 	<?php endwhile; ?>
 
 <?php endif; ?>
+</div>
 <?php get_footer() ?>

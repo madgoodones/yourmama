@@ -36,7 +36,11 @@ if ( $the_query->have_posts() ) : ?>
 						   			</div>
 								</div>
 
+
 								<div class="item-project">
+									<div class="item-prod">
+										<?php the_sub_field('subtitulo_do_projeto') ?>
+									</div>
 									<?php the_sub_field('nome_do_projeto') ?>
 								</div>
 							</div>

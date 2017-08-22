@@ -2,7 +2,7 @@
 	background-color #fff
 	position relative
 	padding-bottom 45px
-	min-height 20vh
+	min-height 25vh
 	.content
 		margin-left 90px
 		padding-top 45px
@@ -16,14 +16,14 @@
 			margin-left 0
 			padding-top 135px
 		.title
-			font-size 20px
+			font-size rem(21px)
 			cursor pointer
 			display inline
 			.subtitle
 				display inline
 				margin-left 12px
 				margin-top 5px
-				font-size rem(12px)
+				font-size rem(15px)
 				position absolute
 				
 		.text
@@ -32,25 +32,25 @@
 			text-transform initial
 			margin-top 9px
 
-.projetos
+
+.projeto
 	color #fff
-	.projeto
-		height 100vh
-		padding 45px
-		padding-top 210px
-		padding-left 90px
-		cursor pointer
-		+below($tablet)
-			padding-left 45px
-		.title
-			font-size rem(50px)
-			letter-spacing 3px
-			span
-				font-size rem(60px)
-		.subtitle
-			letter-spacing 3px
-			font-size rem(20px)
-			margin-top 15px
+	height 100vh
+	padding 45px
+	padding-top 210px
+	padding-left 90px
+	cursor pointer
+	+below($tablet)
+		padding-left 45px
+	.title
+		font-size rem(50px)
+		letter-spacing 3px
+		span
+			font-size rem(60px)
+	.subtitle
+		letter-spacing 3px
+		font-size rem(20px)
+		margin-top 15px
 			
 .diretor-video
 	background-color #fff
@@ -58,6 +58,8 @@
 	display none
 
 .iframe-holder
-	background-color #fff
-	height 100vh
+	background-color #000
+	//background url('http://madknow.com.br/yourmama/wp-content/uploads/2017/08/img-placeholder-dark.jpg') no-repeat center center
+	background-size cover
+	height 75vh
 	display none

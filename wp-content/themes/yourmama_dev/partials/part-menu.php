@@ -1,5 +1,5 @@
-<?php $logo_1 = 'http://localhost/yourmama/wp-content/uploads/2017/07/logo-black.png' ?>
-<?php $logo_2 = 'http://localhost/yourmama/wp-content/uploads/2017/07/logo.png' ?>
+<?php $logo_1 = 'http://madknow.com.br/yourmama/wp-content/uploads/2017/07/logo-black.png' ?>
+<?php $logo_2 = 'http://madknow.com.br/yourmama/wp-content/uploads/2017/07/logo.png' ?>
 
 <?php if (!is_home()) {
 	$logo_2 = $logo_1;
@@ -22,14 +22,14 @@
 <div class="menu-active" style="z-index: 10">
 	<div class="menu-items">
 	<ul class="items-ul">
-		<a href="<?php echo site_url( 'diretores', null ); ?>"><li class="data-img" data-img="http://localhost/yourmama/wp-content/uploads/2017/07/africa.jpg">Diretores</li></a>
-		<li class="data-img" data-img="http://localhost/yourmama/wp-content/uploads/2017/07/4.png">Brand & content</li>
-		<li class="data-img" data-img="http://localhost/yourmama/wp-content/uploads/2017/07/3.png">Cinema/TV</li>
+		<a href="<?php echo site_url( 'diretores', null ); ?>"><li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/2.png">Diretores</li></a>
+		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/6.png">Brand & content</li>
+		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/5.png">Cinema/TV</li>
 		<a href="<?php echo site_url( 'produtora', null ); ?>">
-		<li class="data-img" data-img="http://localhost/yourmama/wp-content/uploads/2017/07/5.png">Produtora</li>
+		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/4.png">Produtora</li>
 		</a>
 		<a href="<?php echo site_url( 'contato', null ); ?>">
-		<li class="data-img" data-img="http://localhost/yourmama/wp-content/uploads/2017/07/6.png">Contato</li>
+		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/3.png">Contato</li>
 		</a>
 	</ul>
 	<ul class="social-ul">

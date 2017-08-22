@@ -1,0 +1,54 @@
+.produtora-header
+	height 25vh
+.produtora
+	min-height 100vh
+	display table
+	padding 90px
+	width 100%
+	+below($mobile)
+		padding 0
+	.content
+		width 50%
+		color #fff
+		float right
+		display table-cell
+		vertical-align middle
+		text-align right
+		+below($mobile)
+			padding 0
+			padding 30px
+			width 60%
+			float none
+			padding-left 50%
+		.title
+			font-size rem(60px)
+			letter-spacing 2px
+			+below($mobile)
+				font-size rem(30px)
+		.text
+			font-family 'Open Sans'
+			font-size rem(14px)
+			line-height 18px
+			text-transform initial
+	.content-even
+		width 50%
+		color #fff
+		float left
+		display table-cell
+		vertical-align middle
+		+below($mobile)
+			padding 0
+			padding 30px
+			width 60%
+			float none
+			padding-right 50%
+		.title
+			font-size rem(60px)
+			letter-spacing 2px
+			+below($mobile)
+				font-size rem(30px)
+		.text
+			font-family 'Open Sans'
+			font-size rem(14px)
+			line-height 18px
+			text-transform initial
