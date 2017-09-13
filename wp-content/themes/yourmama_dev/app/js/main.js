@@ -6,8 +6,6 @@ $( document ).ready(function() {
 
     $('#fullpage').fullpage({
         scrollBar: true,
-        scrollOverflow: true,
-        scrollOverflowReset: true,
         afterRender: true,
         scrollingSpeed: 590,
         offsetSections:false,
@@ -67,54 +65,34 @@ $(".toggle-button").click(function() {
 
 
 // Hover de elementos do menu
-$(".data-img").hover(function(){
-    // Variaveis
-    var img = $(this).attr("data-img");
-    var con = $("#img-show");
-    // Troca a imagem
-    con.css({
-        'background': 'url('+ img +') no-repeat center center',
-        'background-size': 'cover'
+$menuItens = $('.menu-items-list .item a');
+$menuBackground = $('.menu-item-background');
+$menuItens.each(function(index, el) {
+    $(this).on('mouseover', function(event) {
+        event.preventDefault();
+        $menuBackground.removeClass('active');
+        $($(this).data('item')).addClass('active');
     });
 });
 
-$('.owl-diretores').owlCarousel({
-    navigation : true, 
-    slideSpeed : 800,
-    paginationSpeed : 800,
-    singleItem: true,
-    pagination: false,
-    rewindSpeed: 500,
-    loop: false,
+var $owlDiretores = $('.owl-diretores'),
+    $owlWow = $(".wow-home");
+$owlDiretores.owlCarousel({
+    items: 1,
+    loop: true,
     autoplay:true,
-    autoplayTimeout:4000,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
-    }
+    autoplayTimeout:5000,
+    smartSpeed: 1300
 });
-
-var owl = $('.owl-diretores');
-owl.owlCarousel();
 // Listen to owl events:
-owl.on('translate.owl.carousel', function(event) {
-    $(".wow-home").addClass('wow fadeInUp animated');
-    $(".wow-home").on(
-        "webkitAnimationEnd oanimationend msAnimationEnd animationend",
+$owlDiretores.on('translate.owl.carousel', function(event) {
+    $owlWow.addClass('wow fadeInUp animated');
+    $owlWow.on("webkitAnimationEnd oanimationend msAnimationEnd animationend",
         function() {
-            $(".wow-home").removeClass('wow fadeInUp animated');
+            $owlWow.removeClass('wow fadeInUp animated');
         }
     );
 });
-
-
 
 // Inserir efeitos na página de diretores
 
@@ -124,7 +102,8 @@ $('.wow-diretores').css('color', '#fff');
 // Hover da página interna de diretores
 
 // Hover de elementos da página diretores
-$(".diretor-title").on('mouseover',function(){
+var $diretorTitle = $(".diretor-title");
+$diretorTitle.on('mouseover',function(){
     // Variaveis
     var img = $(this).attr("data-img");
     var con = $("#page-diretores");
@@ -134,17 +113,15 @@ $(".diretor-title").on('mouseover',function(){
          con.css({
             'background': 'url('+ img +') no-repeat center center',
             'background-size': 'cover',
-            'transition': '.2s'
+            'transition': '.7s'
         });
     });
 
-    $('.diretor-title').not(this).css('color', 'transparent');
+    $diretorTitle.not(this).css('color', 'transparent');
 });
 
-$(".diretor-title").on('mouseleave', function(event) {
-    $('.diretor-title').css('color', '#fff').fadeIn('slow', function() {
-        
-    });;
+$diretorTitle.on('mouseleave', function(event) {
+    $diretorTitle.css('color', '#fff').fadeIn('slow', function() {});;
 });
 
 

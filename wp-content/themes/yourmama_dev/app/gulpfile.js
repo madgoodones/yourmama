@@ -41,18 +41,18 @@ gulp.task('stylus', function(){
 });
 
 // Minificar JS
+// './vendor/scrollreveal/dist/scrollreveal.js',
+// './vendor/waypoints/lib/jquery.waypoints.js',
+// './vendor/waypoints/lib/shortcuts/inview.js',
+// './vendor/jquery-validation/dist/jquery.validate.js',
+// './vendor/jquery-form/dist/jquery.form.min.js',
 var scripts = [
     './vendor/jquery/dist/jquery.js',
     './vendor/bootstrap/dist/js/bootstrap.js',
     './vendor/owl.carousel/dist/owl.carousel.js',
-    './vendor/scrollreveal/dist/scrollreveal.js',
-    './vendor/waypoints/lib/jquery.waypoints.js',
-    './vendor/waypoints/lib/shortcuts/inview.js',
-    './vendor/jquery-validation/dist/jquery.validate.js',
-    './vendor/jquery-form/dist/jquery.form.min.js',
-    './bower_components/wow/dist/wow.min.js',
-    './bower_components/fullpage.js/dist/jquery.fullpage.min.js',
-    './bower_components/fullpage.js/vendors/scrolloverflow.min.js',
+    './vendor/wow/dist/wow.min.js',
+    './vendor/fullpage.js/dist/jquery.fullpage.min.js',
+    './vendor/fullpage.js/vendors/scrolloverflow.min.js',
     './js/*.js'
 ];
 gulp.task('uglify', function(){
