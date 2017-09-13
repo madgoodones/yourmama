@@ -27,7 +27,7 @@ if ( $the_query->have_posts() ) : ?>
 							>
 							</div>
 
-							<div id="wow<?php echo $i; ?>" class="item-content wow-home">
+							<div id="wow<?php echo $i; ?>" class="item-content wow-home animated-medium">
 								<div class="item-title ">
 						   			<?php the_title() ?>
 						   			<div class="item-arrow">

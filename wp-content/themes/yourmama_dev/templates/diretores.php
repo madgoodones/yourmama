@@ -15,7 +15,6 @@
 	-webkit-background-size: cover;
 	background-size: cover;
 	">
-
 		<div class="diretores-content">
 		<?php if ( $the_query->have_posts() ) : ?>
 			<?php $i = 0; ?>

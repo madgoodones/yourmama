@@ -134,3 +134,21 @@ function yourmama_logo_black() {
     add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'yourmama_logo_black' );
+
+// ACF OPTIONS PAGE
+if( function_exists('acf_add_options_page') ) {
+  
+  acf_add_options_page(array(
+    'page_title'  => 'Configurações do tema',
+    'menu_title'  => 'Configurações do tema',
+    'menu_slug'   => 'theme-general-settings',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));
+  
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Menu do site',
+    'menu_title'  => 'Menu',
+    'parent_slug' => 'theme-general-settings',
+  ));
+}
