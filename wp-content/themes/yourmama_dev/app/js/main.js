@@ -1,3 +1,6 @@
+$(window).on('load', function() { // makes sure the whole site is loaded 
+    $('#preloader').addClass('desactived');
+});
 $( document ).ready(function() {
     $(".menu-active").hide();
 
@@ -97,6 +100,7 @@ $owlDiretores.on('translate.owl.carousel', function(event) {
 // Inserir efeitos na página de diretores
 
 $('.wow-diretores').addClass('wow fadeInUp');
+$('.wow-cinema-tv').addClass('wow fadeInDown');
 $('.wow-diretores').css('color', '#fff');
 
 // Hover da página interna de diretores
@@ -128,20 +132,23 @@ $diretorTitle.on('mouseleave', function(event) {
 // Animação da página de Video
 
 
-$(".projeto").on('click', function(event) {
+$(".projeto-open").on('click', function(event) {
     var titulo = $(this).find('.title').text();
+    var prologo = $(this).find('.read-more').text();
     var id = $(this).attr("id");
     var src = $(this).find('.video-src').attr('data-src');
     var iframe = $('.page-iframe');
     $("#subtitle").hide();
+    $('#diretor-text .prologo').hide();
     iframe.attr('src', src);
     
     $('html, body').animate({
         scrollTop: '0px'
     }, function(){
-        $('#diretor-text').slideUp(500); // Bio
+        $('#diretor-text .description-all').slideUp(500); // Bio
         $('.pos').fadeOut(500, function(){ // Diretor(a)
             $('#subtitle').text(titulo).fadeIn(500); // Nome do video
+            $('#diretor-text .prologo').text(prologo).fadeIn(500); // Nome do video
         });
 
         $(".iframe-holder").slideDown(500, function(){
@@ -156,7 +163,8 @@ $(".projeto").on('click', function(event) {
 
 $("#diretor-title").on('click', function(event) {
     $("#subtitle").text("").hide('slow');
-    $('#diretor-text').slideDown(500);
+    $("#diretor-text .prologo").text("").hide('slow');
+    $('#diretor-text .description-all').slideDown(500);
     $('.pos').fadeIn(500);
     $(".iframe-holder").slideUp(500, function(){
         $(".page-iframe").attr('src', '');

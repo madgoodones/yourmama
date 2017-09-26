@@ -32,8 +32,15 @@
 			text-transform initial
 			margin-top 9px
 
+.label-project
+	display block
+	size: 100%
+	margin 0
+	font-weight initial
 
 .projeto
+	position relative
+	overflow hidden
 	color #fff
 	height 100vh
 	padding 45px
@@ -43,14 +50,57 @@
 	+below($tablet)
 		padding-left 45px
 	.title
-		font-size rem(50px)
+		font-size rem(32px)
 		letter-spacing 3px
+		max-width 480px
+		+above(480px)
+			font-size rem(50px)
 		span
 			font-size rem(60px)
 	.subtitle
 		letter-spacing 3px
 		font-size rem(20px)
 		margin-top 15px
+		
+	.read-more
+		absolute: 0 -100% 0 auto
+		size: 100%
+		min-height 100%
+		max-height 100%
+		padding rem(70px 20px 50px)
+		overflow hidden
+		opacity 0
+		visibility hidden
+		font-family 'Open Sans', sans-serif
+		font-size rem(10px)
+		letter-spacing rem(1.2px)
+		line-height 1.6
+		z-index 1
+		text-transform initial
+		background-color alpha(#313131, 95%)
+		transition(.5s all ease-in-out)
+		+above(768px)
+			size: 50%, 100%
+			padding rem(50px)
+			font-size rem(16px)
+		
+		&-label
+			display inline-block
+			padding rem(10px 15px)
+			margin rem(20px 0)
+			font-weight 400
+			letter-spacing rem(2px)
+			cursor pointer
+			border rem(1px) solid $white
+			
+		&-check
+			display none
+			
+			&:checked ~ .read-more
+				right 0
+				opacity 1
+				visibility visible
+		
 			
 .diretor-video
 	background-color #fff

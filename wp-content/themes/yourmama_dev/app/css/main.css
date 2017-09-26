@@ -613,7 +613,6 @@ a:active {
 .produtora {
   min-height: 100vh;
   display: table;
-  padding: 90px;
   width: 100%;
 }
 @media only screen and (max-width: 720px) {
@@ -627,15 +626,18 @@ a:active {
   float: right;
   display: table-cell;
   vertical-align: middle;
-  text-align: right;
 }
 @media only screen and (max-width: 720px) {
   .produtora .content {
     padding: 0;
-    padding: 30px;
-    width: 60%;
+    padding: 1.875rem 0.938rem;
+    width: 100%;
     float: none;
-    padding-left: 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .produtora .content {
+    padding: 0 3.125rem;
   }
 }
 .produtora .content .title {
@@ -644,14 +646,15 @@ a:active {
 }
 @media only screen and (max-width: 720px) {
   .produtora .content .title {
-    font-size: 1.875rem;
+    font-size: 1.25rem;
   }
 }
 .produtora .content .text {
   font-family: 'Open Sans';
-  font-size: 0.875rem;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 1.5;
   text-transform: initial;
+  text-align: justify;
 }
 .produtora .content-even {
   width: 50%;
@@ -663,10 +666,14 @@ a:active {
 @media only screen and (max-width: 720px) {
   .produtora .content-even {
     padding: 0;
-    padding: 30px;
-    width: 60%;
+    padding: 1.875rem 0.938rem;
+    width: 100%;
     float: none;
-    padding-right: 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .produtora .content-even {
+    padding: 0 3.125rem;
   }
 }
 .produtora .content-even .title {
@@ -675,14 +682,44 @@ a:active {
 }
 @media only screen and (max-width: 720px) {
   .produtora .content-even .title {
-    font-size: 1.875rem;
+    font-size: 1.25rem;
   }
 }
 .produtora .content-even .text {
   font-family: 'Open Sans';
-  font-size: 0.875rem;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 1.5;
   text-transform: initial;
+  text-align: justify;
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 100;
+}
+#preloader.desactived {
+  -webkit-transition: 1.3s all ease-in-out;
+  -moz-transition: 1.3s all ease-in-out;
+  -o-transition: 1.3s all ease-in-out;
+  transition: 1.3s all ease-in-out;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  visibility: hidden;
+}
+#status {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 280px;
 }
 .single-header {
   background-color: #fff;
@@ -724,7 +761,16 @@ a:active {
   text-transform: initial;
   margin-top: 9px;
 }
+.label-project {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-weight: initial;
+}
 .projeto {
+  position: relative;
+  overflow: hidden;
   color: #fff;
   height: 100vh;
   padding: 45px;
@@ -738,8 +784,14 @@ a:active {
   }
 }
 .projeto .title {
-  font-size: 3.125rem;
+  font-size: 2rem;
   letter-spacing: 3px;
+  max-width: 480px;
+}
+@media only screen and (min-width: 480px) {
+  .projeto .title {
+    font-size: 3.125rem;
+  }
 }
 .projeto .title span {
   font-size: 3.75rem;
@@ -748,6 +800,61 @@ a:active {
   letter-spacing: 3px;
   font-size: 1.25rem;
   margin-top: 15px;
+}
+.projeto .read-more {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  padding: 4.375rem 1.25rem 3.125rem;
+  overflow: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  visibility: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.625rem;
+  letter-spacing: 0.075rem;
+  line-height: 1.6;
+  z-index: 1;
+  text-transform: initial;
+  background-color: rgba(49,49,49,0.95);
+  -webkit-transition: 0.5s all ease-in-out;
+  -moz-transition: 0.5s all ease-in-out;
+  -o-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+}
+@media only screen and (min-width: 768px) {
+  .projeto .read-more {
+    width: 50%;
+    height: 100%;
+    padding: 3.125rem;
+    font-size: 1rem;
+  }
+}
+.projeto .read-more-label {
+  display: inline-block;
+  padding: 0.625rem 0.938rem;
+  margin: 1.25rem 0;
+  font-weight: 400;
+  letter-spacing: 0.125rem;
+  cursor: pointer;
+  border: 0.063rem solid #fff;
+}
+.projeto .read-more-check {
+  display: none;
+}
+.projeto .read-more-check:checked ~ .read-more {
+  right: 0;
+  -ms-filter: none;
+  filter: none;
+  opacity: 1;
+  visibility: visible;
 }
 .diretor-video {
   background-color: #fff;
