@@ -985,3 +985,89 @@ label.error {
   color: #f00;
   font-size: 0.75rem;
 }
+.single-tratamentos .video-modal {
+  background: rgba(0,0,0,0.8);
+}
+.single-tratamentos .video-modal .modal-close {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+  font-size: 50px;
+  z-index: 10000;
+  background: transparent;
+  border: 0;
+}
+.single-tratamentos .video-modal .modal-close:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  opacity: 0.7;
+}
+.single-tratamentos .video-container {
+  min-height: 500px;
+  width: 100%;
+  position: relative;
+}
+.single-tratamentos .video-container iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.single-tratamentos .private-content-blocked {
+  width: 100%;
+  padding-left: 3.125rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(20%);
+  -moz-transform: translateY(20%);
+  -o-transform: translateY(20%);
+  -ms-transform: translateY(20%);
+  -webkit-transform: translateY(20%);
+  -o-transform: translateY(20%);
+  transform: translateY(20%);
+}
+.single-tratamentos .private-content-blocked .title {
+  font-size: 1.875rem;
+}
+.single-tratamentos .fixed-logo {
+  position: fixed;
+  top: 45px;
+  right: 45px;
+  bottom: auto;
+  left: auto;
+}
+.post-password-form {
+  max-width: 250px;
+}
+.post-password-form label {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  text-align: right;
+  letter-spacing: 8px;
+  color: #000;
+  position: relative;
+}
+.post-password-form label:after {
+  content: ">";
+  font-size: 3.438rem;
+  position: absolute;
+  bottom: -20px;
+  right: -40px;
+}
+.post-password-form input[type="password"] {
+  padding: 0 4px;
+  border-color: #333;
+  border-width: 0 0 2px 0;
+  width: 100px;
+  margin-top: 1.25rem;
+  float: right;
+  text-align: right;
+  margin-right: 12px;
+}
+.post-password-form input[type="submit"] {
+  display: none;
+}
