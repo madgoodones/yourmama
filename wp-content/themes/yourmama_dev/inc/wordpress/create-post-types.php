@@ -35,22 +35,22 @@ function create_post_types() {
     'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'revisions' ),
     )
   );
-  register_post_type( 'tratamentos', array(
-    'labels'        => array(
-      'name'          => __( 'Tratamentos' ),
-      'singular_name' => __( 'Tratamentos' )
-    ),
-    'public'        => true,
-    'has_archive'   => false,
-    'hierarchical'  => false,
-    'exclude_from_search' => true,
-    'capability_type' => 'post',
-    'publicly_queryable' => true,
-    'rewrite'       => array('slug' => 'tratamentos'),
-    'menu_icon'     => 'dashicons-hammer',
-    'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'revisions' ),
-    )
-  );
+  // register_post_type( 'tratamentos', array(
+  //   'labels'        => array(
+  //     'name'          => __( 'Tratamentos' ),
+  //     'singular_name' => __( 'Tratamentos' )
+  //   ),
+  //   'public'        => true,
+  //   'has_archive'   => false,
+  //   'hierarchical'  => false,
+  //   'exclude_from_search' => true,
+  //   'capability_type' => 'post',
+  //   'publicly_queryable' => true,
+  //   'rewrite'       => array('slug' => 'tratamentos'),
+  //   'menu_icon'     => 'dashicons-hammer',
+  //   'supports'      => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'revisions' ),
+  //   )
+  // );
   flush_rewrite_rules();
 }
 add_action( 'init', 'create_post_types' );

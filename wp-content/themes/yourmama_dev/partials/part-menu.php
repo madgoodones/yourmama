@@ -12,10 +12,10 @@
 	</div>
 </div>
 <?php if(is_singular('diretores')): ?>
-<a class="back" href="<?php bloginfo('url') ?>/diretores">x</a>
+<a class="back close-frame" href="#">x</a>
 <?php endif ?>
 <?php if(is_singular('cinema-tv')): ?>
-<a class="back" href="<?php bloginfo('url') ?>/cinema-tv">x</a>
+<a class="back close-frame" href="#">x</a>
 <?php endif ?>
 <div class="menu-active" style="z-index: 10; display: none;">
 	<div class="menu-items">

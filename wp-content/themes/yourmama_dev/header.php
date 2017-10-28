@@ -28,8 +28,4 @@
 <?php wp_head() ?>
 </head>
 <body <?php body_class() ?>>
-<!-- Preloader -->
-<div id="preloader" style="z-index: 100;">
-<div id="status" style="background-image: url('<?= get_field('light-logo', 'option'); ?>')">&nbsp;</div>
-</div>
 <?php get_template_part('partials/part', 'menu') ?>

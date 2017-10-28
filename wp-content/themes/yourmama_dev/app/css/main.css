@@ -347,9 +347,16 @@ a:active {
 }
 .owl-diretores .item-content {
   position: absolute;
-  color: #fff;
   top: 50%;
-  left: 10%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #fff;
+  left: 15%;
 }
 .owl-diretores .item-content .item-title {
   font-size: 1.75rem;
@@ -374,6 +381,80 @@ a:active {
 }
 .owl-diretores .item-content .item-project .item-prod {
   padding-bottom: 8px;
+}
+.owl-diretores-item {
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+.owl-diretores-item:before,
+.owl-diretores-item:after {
+  content: " ";
+  display: table;
+}
+.owl-diretores-item:after {
+  clear: both;
+}
+.owl-diretores-controllers {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+.owl-diretores-controllers:before,
+.owl-diretores-controllers:after {
+  content: " ";
+  display: table;
+}
+.owl-diretores-controllers:after {
+  clear: both;
+}
+@media only screen and (min-width: 480px) {
+  .owl-diretores-controllers {
+    padding: 0.938rem;
+  }
+}
+.owl-diretores-controllers .owl-direction {
+  display: block;
+  width: 2.5rem;
+  height: 100%;
+  float: left;
+  font-size: 2rem;
+  color: #fff;
+  outline: none;
+  border: 0;
+  background: transparent;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+.owl-diretores-controllers .owl-direction:hover,
+.owl-diretores-controllers .owl-direction:focus {
+  width: 3.75rem;
+  color: #fff;
+  outline: none;
+}
+@media only screen and (min-width: 480px) {
+  .owl-diretores-controllers .owl-direction {
+    width: 5rem;
+    padding: 1.25rem;
+  }
+  .owl-diretores-controllers .owl-direction:hover,
+  .owl-diretores-controllers .owl-direction:focus {
+    width: 6.25rem;
+  }
+}
+.owl-diretores-controllers .owl-direction--next {
+  float: right;
 }
 .menu {
   position: absolute;
@@ -786,7 +867,6 @@ a:active {
 .projeto .title {
   font-size: 2rem;
   letter-spacing: 3px;
-  max-width: 480px;
 }
 @media only screen and (min-width: 480px) {
   .projeto .title {

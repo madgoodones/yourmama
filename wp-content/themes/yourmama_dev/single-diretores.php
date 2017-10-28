@@ -4,7 +4,7 @@
 	<div class="section fp-auto-height">
 		<div class="single-header">
 			<div class="content wow fadeInUp" data-wow-duration="1.5s">
-				<div id="diretor-title" class="title"><?php the_title(); ?><span class="pos"> / <?php the_field('pos') ?></span>
+				<div id="diretor-title" class="close-frame title"><?php the_title(); ?><span class="pos"> / <?php the_field('pos') ?></span>
 					<div id="subtitle" class="subtitle"></div>
 				</div>
 				<div id="diretor-text" class="text">

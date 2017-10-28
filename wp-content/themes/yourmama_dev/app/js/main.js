@@ -1,6 +1,3 @@
-$(window).on('load', function() { // makes sure the whole site is loaded 
-    $('#preloader').addClass('desactived');
-});
 $( document ).ready(function() {
     $(".menu-active").hide();
 
@@ -131,10 +128,11 @@ $( document ).ready(function() {
 
     // Animação da página de Video
     $(".projeto-open").on('click', function(event) {
-        var titulo = $(this).find('.title').text();
-        var prologo = $(this).find('.read-more').text();
-        var id = $(this).attr("id");
-        var src = $(this).find('.video-src').attr('data-src');
+        $this = $(this).parent().parent().parent();
+        var titulo = $this.find('.title').text();
+        var prologo = $this.find('.read-more').text();
+        var id = $this.attr("id");
+        var src = $this.find('.video-src').attr('data-src');
         var iframe = $('.page-iframe');
         $("#subtitle").hide();
         $('#diretor-text .prologo').hide();
@@ -169,13 +167,21 @@ $( document ).ready(function() {
             });
             
     });
-    
 
 });
     
+/**
+* Owl directions
+*/
+var $owl_direction = $('.owl-direction');
+$owl_direction.on('click', function(event) {
+    var direction = $(this).data('direction'),
+            owl = $(this).data('owl');
+    $(owl).trigger(direction + '.owl.carousel');
+});
 
 // Mostra conteudo novamente
-$("#diretor-title").on('click', function(event) {
+$(".close-frame").on('click', function(event) {
     $("#subtitle").text("").hide('slow');
     $("#diretor-text .prologo").text("").hide('slow');
     $('#diretor-text .description-all').slideDown(500);
