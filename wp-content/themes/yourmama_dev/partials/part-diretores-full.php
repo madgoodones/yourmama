@@ -20,7 +20,6 @@ if ( $the_query->have_posts() ) : ?>
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 		<a href="<?php the_permalink() ?>" class="owl-diretores-item">
 			<?php if( have_rows('projetos') ): ?>
-			
 				<?php while ( have_rows('projetos') ) : the_row(); ?>
 					<?php $img = get_sub_field('imagem_do_projeto'); ?>
 					<div>
@@ -52,8 +51,10 @@ if ( $the_query->have_posts() ) : ?>
 			<?php endif; ?>
 	    <?php endwhile ?><?php wp_reset_postdata(); ?>
     </div>
-    <div class="owl-diretores-controllers">
+    <div class="owl-diretores-controllers right">
     	<button class="owl-direction owl-direction--next" data-owl=".owl-diretores" data-direction="next"><i class="fa fa-angle-right"></i></button>
+	</div>
+    <div class="owl-diretores-controllers">
     	<button class="owl-direction" data-owl=".owl-diretores" data-direction="prev"><i class="fa fa-angle-left"></i></button>
     </div>
 </div>
