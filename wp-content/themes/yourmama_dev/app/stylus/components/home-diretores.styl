@@ -34,9 +34,11 @@
 	&-controllers
 		vertical-center(-50%)
 		left 0
-		right 0
 		z-index 5
 		clearfix()
+		&.right
+			right 0
+			left auto
 		+above(480px)
 			padding rem(15px)
 		

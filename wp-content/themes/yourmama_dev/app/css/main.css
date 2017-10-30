@@ -406,7 +406,6 @@ a:active {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 0;
-  right: 0;
   z-index: 5;
 }
 .owl-diretores-controllers:before,
@@ -416,6 +415,10 @@ a:active {
 }
 .owl-diretores-controllers:after {
   clear: both;
+}
+.owl-diretores-controllers.right {
+  right: 0;
+  left: auto;
 }
 @media only screen and (min-width: 480px) {
   .owl-diretores-controllers {
@@ -618,12 +621,15 @@ a:active {
 }
 .back {
   position: absolute;
-  left: 45px;
+  left: 35px;
   top: 45px;
   z-index: 8888;
   text-transform: lowercase;
   padding-top: 1px;
   cursor: pointer;
+}
+.back-min {
+  left: 55px;
 }
 .contato {
   padding: 45px;
