@@ -11,7 +11,7 @@
 	<?php $img = get_sub_field('imagem'); ?>
 	
 	<div class="section produtora" style="
-		background: url('<?php echo $img['url'] ?>') no-repeat;
+		background: url('<?= $img['url'] ?>') no-repeat;
 		background-position: center center;
 		<?php if($i == 1): ?>
 		background-position: 52% center;
@@ -33,6 +33,9 @@
 				</div>
 			</div>
 		</div>
+		<?php if($i === 0): ?>
+		<div class="mouse"></div>
+		<?php endif ?>
 	</div>
 	<?php $i++; ?>
 	<?php endwhile; ?>

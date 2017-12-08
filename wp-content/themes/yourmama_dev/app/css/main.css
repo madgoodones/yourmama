@@ -291,6 +291,9 @@
 .z-index {
   z-index: 999;
 }
+.fullpage-fix {
+  overflow-x: hidden !important;
+}
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -305,6 +308,7 @@ html {
 }
 body,
 html {
+  position: relative;
   margin: 0 auto;
   padding: 0;
   font-size: 100%;
@@ -812,20 +816,22 @@ a:active {
   background-color: #fff;
   position: relative;
   padding-bottom: 45px;
-  min-height: 25vh;
+  min-height: 30vh;
+  overflow: hidden;
 }
 .single-header .content {
   margin-left: 90px;
   padding-top: 45px;
-  width: 50%;
+  max-width: 800px;
+  width: 100%;
+  text-align: justify;
 }
 @media only screen and (max-width: 991px) {
   .single-header .content {
     bottom: 25%;
     width: 100%;
-    text-align: left;
-    padding-left: 45px;
-    padding-right: 45px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin-left: 0;
     padding-top: 135px;
   }
@@ -859,6 +865,7 @@ a:active {
   position: relative;
   overflow: hidden;
   color: #fff;
+  width: 100vw;
   height: 100vh;
   padding: 45px;
   padding-top: 210px;
@@ -950,8 +957,48 @@ a:active {
 .iframe-holder {
   background-color: #000;
   background-size: cover;
-  height: 75vh;
   display: none;
+}
+@media only screen and (min-width: 768px) {
+  .iframe-holder {
+    min-height: 100vh;
+  }
+  .iframe-holder iframe {
+    height: 100vh !important;
+  }
+}
+.iframe-holder .assistir-tambem {
+  display: block;
+  max-width: 800px;
+  width: 100%;
+  list-style: none;
+  padding: 15px 25px;
+}
+@media only screen and (min-width: 991px) {
+  .iframe-holder .assistir-tambem {
+    padding: 15px 0 0;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 0;
+  }
+}
+.iframe-holder .assistir-tambem > li {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+  line-height: 1.5;
+}
+.iframe-holder .assistir-tambem > li.assistir-tambem-item {
+  display: inline-block;
+  padding: 5px 5px 3px;
+  margin-right: 5px;
+  color: #000;
+  cursor: pointer;
+  background: #fff;
+}
+.iframe-holder .assistir-tambem > li.assistir-tambem-item:hover {
+  color: #fff;
+  background: #2c2c2c;
 }
 .alignnone {
   margin: 5px 5px 5px 0;
@@ -1156,4 +1203,70 @@ label.error {
 }
 .post-password-form input[type="submit"] {
   display: none;
+}
+.qtranslater ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.qtranslater ul li {
+  display: inline-block;
+}
+.mouse {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 20px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background-color: transparent;
+}
+.mouse:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: mouseMouve 2s infinite;
+  animation: mouseMouve 2s infinite;
+}
+@-moz-keyframes mouseMouve {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: 25px;
+  }
+}
+@-webkit-keyframes mouseMouve {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: 25px;
+  }
+}
+@-o-keyframes mouseMouve {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: 25px;
+  }
+}
+@keyframes mouseMouve {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: 25px;
+  }
 }

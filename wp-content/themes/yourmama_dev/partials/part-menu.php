@@ -1,21 +1,18 @@
 <?php $logo_1 = get_field('dark-logo', 'option'); ?>
 <?php $logo_2 = get_field('light-logo', 'option'); ?>
-<?php if (!is_home() && !is_404()) {
+<?php if(!is_home() && !is_page_template('templates/home.php') && !is_404()) {
 	$logo_2 = $logo_1;
 } ?>
-<div class="menu <?php if(!is_home() && !is_404()): echo "not_home"; endif; ?>" style="z-index: 50">
+<div class="menu <?php if(!is_home() && !is_page_template('templates/home.php') && !is_404()): echo "not_home"; endif; ?>" style="z-index: 50">
 	<a href="<?= site_url() ?>">
-	<img id="site-logo" class="logo" src="<?= "$logo_2"; ?>" data-swap="<?= "$logo_1"; ?>">
+	<img id="site-logo" alt="<?php the_title() ?>" class="logo" src="<?= "$logo_2"; ?>" data-swap="<?= "$logo_1"; ?>">
 	</a>
 	<div class="toggle-button" style="z-index: 50">
 		<i id="data-icon" class="fa fa-bars fa-2x nav-toggle" aria-hidden="true"></i>
 	</div>
 </div>
-<?php if(is_singular('diretores')): ?>
-<a class="back close-frame" href="<?php bloginfo('url') ?>/diretores">x</a> <a class="back back-min close-frame" href="#">-</a>
-<?php endif ?>
-<?php if(is_singular('cinema-tv')): ?>
-<a class="back close-frame" href="<?php bloginfo('url') ?>/cinema-tv">x</a> <a class="back back-min close-frame" href="#">-</a>
+<?php if(is_singular( 'cinema-tv' ) || is_singular( 'diretores' ) ): ?>
+<a class="back close-frame" href="#">x</a>
 <?php endif ?>
 <div class="menu-active" style="z-index: 10; display: none;">
 	<div class="menu-items">
@@ -26,6 +23,7 @@
 				<a data-item=".menu-i-<?= $count ?>" href="<?php the_sub_field('url'); ?>"><?php the_sub_field('name'); ?></a>
 			</li>
 			<?php $count++; endwhile;  ?>
+			<li class="qtranslater item"><?= qtranxf_generateLanguageSelectCode('image') ?></li>
 		</ul>
 		<?php endif ?>
 		<?php if( have_rows('theme-socials', 'option') ): ?>

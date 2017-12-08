@@ -1,6 +1,6 @@
 <?php require_once('inc/protect-abspath.php') ?>
 <?php get_header(); ?>
-<div id="fullpage">
+<div id="fullpage" class="fullpage-fix">
 	<div class="section fp-auto-height">
 		<div class="single-header">
 			<div class="content wow fadeInUp" data-wow-duration="1.5s">
@@ -15,8 +15,21 @@
 			</div>
 		</div>
 		<div class="iframe-holder">
+		<?php if( have_rows('projetos') ): $i=0; ?>
+			<ul id="assistir-tambem" class="assistir-tambem">
+			<li><?php _e(do_shortcode('<!--:en-->WATCH ALSO:<!--:--><!--:pb-->ASSISTA TAMBÉM:<!--:-->'));?></li>
+			<?php while ( have_rows('projetos') ) : the_row(); ?>
+			<li class="assistir-tambem-item" data-film="<?php the_sub_field('nome_do_projeto'); ?><?= $i ?>"><?php the_sub_field('nome_do_projeto'); ?></li>
+			<?php $i++; endwhile ?>
+			</ul>
+		<?php endif ?>
 			<!-- <div id="video-top"></div> -->
-			<iframe class="page-iframe" width="100%" frameborder="0" src="" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+			<iframe class="page-iframe" width="100%" frameborder="0" src="" 
+			allowfullscreen="allowfullscreen"
+			mozallowfullscreen="mozallowfullscreen"
+			msallowfullscreen="msallowfullscreen"
+			oallowfullscreen="oallowfullscreen"
+			webkitallowfullscreen="webkitallowfullscreen">
 			</iframe>
 		</div>
 	</div>
@@ -43,7 +56,7 @@
 						<?php $iframe = get_sub_field('video_do_projeto'); ?>
 						<?php preg_match('/src="(.+?)"/', $iframe, $matches); ?>
 						<?php $src = $matches[1]; ?>
-						<input class="video-src" type="hidden" data-src="<?php echo "$src" ?>">
+						<input class="video-src" type="hidden" data-film="<?php the_sub_field('nome_do_projeto'); ?><?= $i ?>" data-src="<?= $src ?>">
 					</div>
 				</div>
 			</div> <!-- End Section -->

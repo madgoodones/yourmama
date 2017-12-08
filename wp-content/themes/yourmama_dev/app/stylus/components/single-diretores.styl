@@ -2,17 +2,19 @@
 	background-color #fff
 	position relative
 	padding-bottom 45px
-	min-height 25vh
+	min-height 30vh
+	overflow hidden
 	.content
 		margin-left 90px
 		padding-top 45px
-		width 50%
+		max-width: 800px
+		width 100%
+		text-align: justify
 		+below($tablet)
 			bottom 25%
 			width 100%
-			text-align left
-			padding-left 45px
-			padding-right 45px
+			padding-left 25px
+			padding-right 25px
 			margin-left 0
 			padding-top 135px
 		.title
@@ -42,6 +44,7 @@
 	position relative
 	overflow hidden
 	color #fff
+	width 100vw
 	height 100vh
 	padding 45px
 	padding-top 210px
@@ -108,7 +111,36 @@
 
 .iframe-holder
 	background-color #000
-	//background url('http://madknow.com.br/yourmama/wp-content/uploads/2017/08/img-placeholder-dark.jpg') no-repeat center center
 	background-size cover
-	height 75vh
 	display none
+	+above(768px)
+		min-height 100vh
+		iframe
+			height: 100vh !important
+
+	.assistir-tambem
+		display: block
+		max-width: 800px
+		width 100%
+		list-style: none
+		padding: 15px 25px
+		+above($tablet)
+			padding: 15px 0 0
+			margin-left: 90px
+			margin-right: 90px
+			margin-bottom: 0
+		> li
+			display: block
+			margin-bottom: 10px
+			color: #FFF
+			line-height: 1.5
+			&.assistir-tambem-item
+				display: inline-block
+				padding: 5px 5px 3px
+				margin-right: 5px
+				color #000000
+				cursor pointer
+				background #ffffff
+				&:hover
+					color #ffffff
+					background #2c2c2c

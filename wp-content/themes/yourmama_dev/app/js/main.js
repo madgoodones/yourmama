@@ -1,15 +1,12 @@
 $( document ).ready(function() {
     $(".menu-active").hide();
-
-    var altura = $('.iframe-holder').height();
-    $(".page-iframe").height(altura);
-
+    
     $('#fullpage').fullpage({
         scrollBar: true,
         afterRender: true,
         scrollingSpeed: 590,
         offsetSections:false,
-        loopBottom: true,
+        loopBottom: true
     });
 
     var wow = new WOW(
@@ -65,7 +62,7 @@ $( document ).ready(function() {
 
 
     // Hover de elementos do menu
-    $menuItens = $('.menu-items-list .item a');
+    $menuItens = $('.menu-items-list .item > a');
     $menuBackground = $('.menu-item-background');
     $menuItens.each(function(index, el) {
         $(this).on('mouseover', function(event) {
@@ -128,7 +125,7 @@ $( document ).ready(function() {
 
     // Animação da página de Video
     $(".projeto-open").on('click', function(event) {
-        $this = $(this).parent().parent().parent();
+        $this = $(this).parent();
         var titulo = $this.find('.title').text();
         var prologo = $this.find('.read-more').text();
         var id = $this.attr("id");
@@ -137,7 +134,7 @@ $( document ).ready(function() {
         $("#subtitle").hide();
         $('#diretor-text .prologo').hide();
         iframe.attr('src', src);
-        
+        $('.project-section').css('display', 'none');
         $('html, body').animate({
             scrollTop: '0px'
         }, function(){
@@ -149,9 +146,9 @@ $( document ).ready(function() {
 
             $(".iframe-holder").slideDown(500, function(){
                 $(".project-section").fadeOut(500);
-                console.log(".video-"+id);
             });
         });
+        $.fn.fullpage.destroy('all');
     });
 
 
@@ -165,7 +162,6 @@ $( document ).ready(function() {
             $(this).attr('src', $(this).attr('src'));
             return false;
             });
-            
     });
 
 });
@@ -182,14 +178,40 @@ $owl_direction.on('click', function(event) {
 
 // Mostra conteudo novamente
 $(".close-frame").on('click', function(event) {
+    $('.project-section').css('display', 'block');
     $("#subtitle").text("").hide('slow');
     $("#diretor-text .prologo").text("").hide('slow');
     $('#diretor-text .description-all').slideDown(500);
     $('.pos').fadeIn(500);
     $(".iframe-holder").slideUp(500, function(){
         $(".page-iframe").attr('src', '');
-        $('.project-section').fadeIn(500, function() {
-
+    });
+    setTimeout(function(){
+        $('#fullpage').fullpage({
+            scrollBar: true,
+            afterRender: true,
+            scrollingSpeed: 590,
+            offsetSections:false,
+            loopBottom: true
         });
+    }, 500);
+});
+
+// Assistir Também 
+var $btnAssistirTambem = $('#assistir-tambem'),
+    $videos = $('.project-section .video-src'),
+    $iframe = $(".page-iframe");
+
+$btnAssistirTambem.on('click', '.assistir-tambem-item', function() {
+    var dataFilm = $(this).data('film');
+    $iframe.slideUp('slow');
+    $videos.each(function(el) {
+        $this = $(this);
+        if($this.data('film') === dataFilm) {
+            $iframe.attr('src', $this.data('src'));
+            $iframe.on('load', function (event) {
+                $iframe.slideDown('fast');
+            });
+        }
     });
 });
