@@ -1,45 +1,45 @@
-<?php $logo_1 = 'http://madknow.com.br/yourmama/wp-content/uploads/2017/07/logo-black.png' ?>
-<?php $logo_2 = 'http://madknow.com.br/yourmama/wp-content/uploads/2017/07/logo.png' ?>
-
-<?php if (!is_home()) {
+<?php $logo_1 = get_field('dark-logo', 'option'); ?>
+<?php $logo_2 = get_field('light-logo', 'option'); ?>
+<?php if(!is_home() && !is_page_template('templates/home.php') && !is_404()) {
 	$logo_2 = $logo_1;
 } ?>
-
-
-<div class="menu <?php if(!is_home()): echo "not_home"; endif; ?>" style="z-index: 999">
-	<a href="<?php echo site_url() ?>">
-	<img id="site-logo" class="logo" src="<?php echo "$logo_2"; ?>" data-swap="<?php echo "$logo_1"; ?>">
+<div class="menu <?php if(!is_home() && !is_page_template('templates/home.php') && !is_404()): echo "not_home"; endif; ?>" style="z-index: 50">
+	<a href="<?= site_url() ?>">
+	<img id="site-logo" alt="<?php the_title() ?>" class="logo" src="<?= "$logo_2"; ?>" data-swap="<?= "$logo_1"; ?>">
 	</a>
-	<div class="toggle-button" style="z-index: 1000">
+	<div class="toggle-button" style="z-index: 50">
 		<i id="data-icon" class="fa fa-bars fa-2x nav-toggle" aria-hidden="true"></i>
 	</div>
 </div>
-
-<?php if(is_singular('diretores')): ?>
-	<div class="back" onclick="history.go(-1)";>x</div>
+<?php if(is_singular( 'cinema-tv' ) || is_singular( 'diretores' ) ): ?>
+<a class="back close-frame" href="#">x</a>
 <?php endif ?>
-
-<div class="menu-active" style="z-index: 10">
+<div class="menu-active" style="z-index: 10; display: none;">
 	<div class="menu-items">
-	<ul class="items-ul">
-		<a href="<?php echo site_url( 'diretores', null ); ?>"><li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/2.png">Diretores</li></a>
-		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/6.png">Brand & content</li>
-		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/5.png">Cinema/TV</li>
-		<a href="<?php echo site_url( 'produtora', null ); ?>">
-		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/4.png">Produtora</li>
-		</a>
-		<a href="<?php echo site_url( 'contato', null ); ?>">
-		<li class="data-img" data-img="http://madknow.com.br/yourmama/wp-content/uploads/2017/07/3.png">Contato</li>
-		</a>
-	</ul>
-	<ul class="social-ul">
-		<li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-		<li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-		<li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
-		<li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-	</ul>
+		<?php if( have_rows('menu-itens', 'option') ): ?>
+		<ul class="menu-items-list">
+			<?php $count=0; while( have_rows('menu-itens', 'option') ): the_row(); ?>
+			<li class="item">
+				<a data-item=".menu-i-<?= $count ?>" href="<?php the_sub_field('url'); ?>"><?php the_sub_field('name'); ?></a>
+			</li>
+			<?php $count++; endwhile;  ?>
+			<li class="qtranslater item"><?= qtranxf_generateLanguageSelectCode('image') ?></li>
+		</ul>
+		<?php endif ?>
+		<?php if( have_rows('theme-socials', 'option') ): ?>
+		<ul class="social-ul">
+			<?php while( have_rows('theme-socials', 'option') ): the_row(); ?>
+			<li><a href="<?php the_sub_field('url'); ?>" target="_blank"><i class="fa <?php the_sub_field('icon'); ?>" aria-hidden="true"></i></a></li>
+			<?php endwhile ?>
+		</ul>
+		<?php endif ?>
 	</div>
-	<div id="img-show" class="content">
-		
-	</div>
+	<?php $count=0; while( have_rows('menu-itens', 'option') ): the_row(); ?>
+	<?php $image = get_sub_field('image'); ?>
+	<?php if ($count==0): ?>
+	<div style="background-image: url('<?= $image['url']  ?>')" class="menu-item-background menu-i-<?= $count ?> active"></div>
+	<?php else: ?>
+	<div style="background-image: url('<?= $image['url']  ?>')" class="menu-item-background menu-i-<?= $count ?>"></div>
+	<?php endif ?>
+	<?php $count++; endwhile ?>
 </div>

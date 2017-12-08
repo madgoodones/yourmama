@@ -2,10 +2,9 @@
 	.img-background
 		height: 100vh
 	.item-content
-		position absolute
+		vertical-center(-50%)
 		color #fff
-		top 50%
-		left 10%
+		left 15%
 		.item-title
 			font-size rem(28px)
 			letter-spacing 8px
@@ -26,4 +25,45 @@
 			display table-caption
 			.item-prod
 				padding-bottom 8px
-			
+				
+	&-item
+		display block
+		size: 100%, 100vh
+		clearfix()
+	
+	&-controllers
+		vertical-center(-50%)
+		left 0
+		z-index 5
+		clearfix()
+		&.right
+			right 0
+			left auto
+		+above(480px)
+			padding rem(15px)
+		
+		.owl-direction
+			display block
+			size: rem(40px), 100%
+			float left
+			font-size rem(32px)
+			color alpha($white, 50)
+			outline none
+			border 0
+			background transparent
+			transition .2s all ease-in-out
+			&:hover
+			&:focus
+				width rem(60px)
+				color $white
+				outline none
+				
+			+above(480px)
+				width rem(80px)
+				padding rem(20px)
+				&:hover
+				&:focus
+					width rem(100px)
+				
+			&--next
+				float right

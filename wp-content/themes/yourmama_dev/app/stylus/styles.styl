@@ -18,3 +18,101 @@
 label.error
 	color red
 	font-size rem(12px)
+
+.single-tratamentos
+	.video-modal
+		background rgba(#000, 0.8)
+		.modal-close
+			position fixed
+			right 10px
+			top 10px
+			color #fff
+			font-size 50px
+			z-index 10000
+			background transparent
+			border 0
+			&:hover
+				opacity 0.7
+	.video-container
+		min-height 500px
+		width 100%
+		position relative
+		iframe 
+			width 100%
+			height 100%
+			absolute 0
+		
+	.private-content-blocked
+		width 100%
+		padding-left rem(50px)
+		vertical-center(20%)
+		.title
+			font-size rem(30px)
+	.fixed-logo
+		fixed: 45px 45px auto auto
+
+/* Forms */
+.post-password-form
+	max-width 250px
+	label
+		text-transform: uppercase;
+		font-size rem(40px)
+		text-align right
+		letter-spacing 8px
+		color #000
+		position relative
+		&:after
+			content ">"
+			font-size rem(55px)
+			position absolute
+			bottom -20px
+			right -40px
+
+	input[type="password"]
+		padding 0 4px
+		border-color #333		
+		border-width 0 0 2px 0
+		width 100px
+		margin-top rem(20px)
+		float right
+		text-align right
+		margin-right 12px
+	input[type="submit"]
+		display none
+		
+.qtranslater
+
+	ul
+		display inline-block
+		padding 0
+		margin 0
+		list-style none 
+		li
+			display inline-block
+
+.mouse
+	position: absolute
+	bottom: 15px
+	left: 0
+	right: 0
+	margin: 0 auto
+	width: 20px
+	height: 40px
+	border-radius: 20px
+	border: 2px solid #FFF
+	background-color: transparent
+	&:before
+		content: ''
+		position: absolute
+		top: 5px
+		left: 50%
+		margin-left: -2px
+		width: 4px
+		height: 4px
+		background-color: #FFF
+		border-radius: 100%
+		animation: mouseMouve 2s infinite
+
+@keyframes mouseMouve
+	0% {top: 5px}
+	100% {top: 25px}

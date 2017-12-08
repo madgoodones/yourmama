@@ -10,8 +10,8 @@
 
 	<?php $img = get_sub_field('imagem'); ?>
 	
-	<div class="section produtora fp-auto-height fp-noscroll" style="
-		background: url('<?php echo $img['url'] ?>') no-repeat;
+	<div class="section produtora" style="
+		background: url('<?= $img['url'] ?>') no-repeat;
 		background-position: center center;
 		<?php if($i == 1): ?>
 		background-position: 52% center;
@@ -22,15 +22,20 @@
 		-webkit-background-size: cover;
 		background-size: cover;
 	">	
-		<div class="content<?php if(!($i %2 == 0)): echo "-even"; endif; ?> wow fadeInUp animated">
-			<div class="title">
-				<?php the_sub_field('titulo') ?>
-			</div>
+		<div class="container">
+			<div class="content<?php if(!($i %2 == 0)): echo "-even"; endif; ?> wow fadeInUp animated">
+				<div class="title">
+					<?php the_sub_field('titulo') ?>
+				</div>
 
-			<div class="text">
-				<?php the_sub_field('texto') ?>
+				<div class="text">
+					<?php the_sub_field('texto') ?>
+				</div>
 			</div>
 		</div>
+		<?php if($i === 0): ?>
+		<div class="mouse"></div>
+		<?php endif ?>
 	</div>
 	<?php $i++; ?>
 	<?php endwhile; ?>
